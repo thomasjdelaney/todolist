@@ -1,5 +1,8 @@
 
-test
-new task
-test
-new task
+Make Coffee
+Exercise
+Have Shower
+Make Coffee
+Exercise
+Have Shower
+Serve Coffee

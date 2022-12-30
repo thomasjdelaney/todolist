@@ -10,6 +10,6 @@ sudo apt-get install python3-tk
 ```
 
 ### To-do
-- make a to-do list class
+- fix the functionality of the add and delete buttons and reloading
 - probably need an item class
 - maybe a sub-item class too
