@@ -71,20 +71,20 @@ class ToDoListManager:
             button_frame, text='Delete Item', bg='Azure', font=('Helvetica', 12),
             command=lambda: self.delete_item()).pack(fill='both')
 
-    def add_item(self, entry: tk.Entry):
+    def add_item(self, entry: tk.Entry) -> None:
         new_task = entry.get()
-        self.tasks.insert(tk.END, new_task)
-        with open('tasks.txt', 'a') as tasks_list_file:
-            tasks_list_file.write(f'\n{new_task}')
-        entry.delete(0, tk.END)
+        if new_task:
+            self.tasks.insert(tk.END, new_task)
+            with open('tasks.txt', 'a') as tasks_list_file:
+                tasks_list_file.write(f'{new_task}\n')
+            entry.delete(0, tk.END)
 
-    def delete_item(self):
+    def delete_item(self) -> None:
+        """For deleting the active item from the Listbox and the file."""
+        active_item = self.tasks.get(tk.ACTIVE)
         self.tasks.delete(tk.ACTIVE)
-        with open('tasks.txt', 'r+') as tasks_list_file:
+        with open('tasks.txt', 'r') as tasks_list_file:
             lines = tasks_list_file.readlines()
-            tasks_list_file.truncate()
-            for line in lines:
-                if self.tasks.get(tk.ACTIVE) == line[:-2]:
-                    lines.remove(line)
-                tasks_list_file.write(line)
-            tasks_list_file.close()
+        lines.remove(active_item)
+        with open('tasks.txt', 'w') as tasks_list_file:
+            tasks_list_file.writelines(lines)
