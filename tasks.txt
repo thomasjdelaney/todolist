@@ -1,3 +1,6 @@
-Item3
-Test
-Manual
+Make new branch
+Switch from txt to json
+Add panel to distlay items in full
+Make enter button work
+Add item class
+enter test

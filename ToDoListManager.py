@@ -21,6 +21,7 @@ class ToDoListManager:
         self.root.geometry('300x400')
         self.root.resizable(True, True)
         self.root.config(bg='Black')
+        self.root.bind('<Return>', self.add_item_event)
 
     def set_header(self) -> None:
         """For setting the header in the root window"""
@@ -78,6 +79,10 @@ class ToDoListManager:
             with open('tasks.txt', 'a') as tasks_list_file:
                 tasks_list_file.write(f'{new_task}\n')
             entry.delete(0, tk.END)
+
+    def add_item_event(self, event: tk.Event):
+        """For binding to the <Return> button"""
+        self.add_item(self.entry_box)
 
     def delete_item(self) -> None:
         """For deleting the active item from the Listbox and the file."""

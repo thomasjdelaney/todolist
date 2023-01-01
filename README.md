@@ -10,6 +10,7 @@ sudo apt-get install python3-tk
 ```
 
 ### To-do
+- make a new branch for upcoming changes
 - change from txt file to some json file or something
 - probably need an item class
 - maybe a sub-item class too
