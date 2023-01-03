@@ -85,11 +85,17 @@ class ToDoListManager:
         self.add_item(self.entry_box)
 
     def delete_item(self) -> None:
-        """For deleting the active item from the Listbox and the file."""
+        """For deleting the active item from the Listbox and the file. If there is no '\n' at the end of the
+        active_item, then add one, I suppose."""
         active_item = self.tasks.get(tk.ACTIVE)
+        active_item = f'{active_item}\n' if not active_item.endswith('\n') else active_item
         self.tasks.delete(tk.ACTIVE)
         with open('tasks.txt', 'r') as tasks_list_file:
             lines = tasks_list_file.readlines()
-        lines.remove(active_item)
+        if active_item in lines:
+            lines.remove(active_item)
+        else:
+            print(f'{active_item} not in lines!')
+            print(lines)
         with open('tasks.txt', 'w') as tasks_list_file:
             tasks_list_file.writelines(lines)

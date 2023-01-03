@@ -1,6 +1,3 @@
-Make new branch
 Switch from txt to json
-Add panel to distlay items in full
+Add panel to display items in full
 Make enter button work
-Add item class
-enter test
