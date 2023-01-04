@@ -1,5 +1,6 @@
 """A class for a to-do list manager"""
 import tkinter as tk
+from ItemCreationManager import ItemCreationManager
 
 
 class ToDoListManager:
@@ -65,7 +66,7 @@ class ToDoListManager:
     def set_add_item_button(self, button_frame: tk.Frame) -> None:
         tk.Button(
             button_frame, text='Add Item', bg='Azure', font=('Helvetica', 12),
-            command=lambda: self.add_item(self.entry_box)).pack(fill='both')
+            command=lambda: ItemCreationManager()).pack(fill='both')
 
     def set_delete_item_button(self, button_frame: tk.Frame) -> None:
         tk.Button(
