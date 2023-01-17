@@ -77,6 +77,13 @@ class ToDoListManager:
                 self.tasks.insert(tk.END, task)
             tasks_list.close()
 
-    def add_item_event(self, event: tk.Event):
+    def add_item_event(self, event: tk.Event) -> None:
         """For binding to the <Return> button"""
         self.list_frame.add_item(self.entry_box)
+
+    def add_item(self) -> None:
+        """For reading in the info from name and description on ItemCreationManager, adding it to the items dict and
+        saving that down"""
+        name = self.root.frames['ItemCreationManager'].name_entry.get()
+        desc = self.root.frames['ItemCreationManager'].description_text.get('1.0', 'end-1c')
+        return None
